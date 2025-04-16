@@ -90,8 +90,6 @@ public:
 		return type; 
 	}
 
-
-
 //////////////////
 
 	double VolumeVodichki() const
@@ -121,25 +119,7 @@ public:
 			<< width << " " << length << " " << depth << endl;
 	}
 
-	void saveToBinarTextit  (ofstream& out) const
-	{
-		out.write((char*)&type, sizeof(type));
-		int nameLength = name.length();
-		out.write((char*)&nameLength, sizeof(nameLength));
-		out.write(name.get(), nameLength);
-		out.write((char*)&width, sizeof(width));
-		out.write((char*)&length, sizeof(length));
-		out.write((char*)&depth, sizeof(depth));
-	}
-	///////////
-	void loadFromText(ifstream& in)
-	{
-		string typeStr;
-		char nameBuffer[256];
-		in >> typeStr >> nameBuffer >> width >> length >> depth;
-		type = static_cast<ReservoirType>(distance(begin(typeStr), find(begin(typeStr), end(typeStr), typeStr)));
-		name.set(nameBuffer);
-	}
+	
 
 	////////
 	
